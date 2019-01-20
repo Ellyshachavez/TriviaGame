@@ -18,24 +18,38 @@
                 <p class="lead text-center" id="pfont">Think you know todays Rock? Test your Trivia skills with this timed game. </p>
                 <hr class="my-4">
                 <p>You'll have 15 second to answer each question. Ready? </p>
-                <a class="btn btn btn-lg text-center" href="#" role="button" id=button-color>Start Trivia</a>
+                <a class="btn btn btn-lg text-center" href="#" role="button" id="button-color"><span id="start">Start Trivia</span></a>
               </div>
     <div class="container-fluid">
             <div class="container">
                     <div class="row">
                       <div class="col">
-                        
+                            <div class="card" style="width: 10rem;" id="timer">
+                                    <div class="card-body" >
+                                      <h5 class="card-title">TIMER</h5>
+                                      <p class="card-text"><span id="count-down">00</span></p>
+                                    </div>
+                                  </div>
                       </div>
-                      <div class="col-10">
+                      <div class="col-8">
                             <div class="card" id="card-bckgrnd">
                 
                                     <div class="card-body text-center" id="div-font">
-                                      "Put another dime in the juke box, baby." - Joan Jett
+                                     <h3 id="question">"Put another dime in the juke box, baby." - </br>Joan Jett</h3> 
+                                     <h4 id="answers"></h4>
                                     </div>
                                   </div>
                       </div>
                       <div class="col">
-                        
+                            <div class="card" style="width: 10rem;" id="score-board">
+                                    <div class="card-body" >
+                                      <h5 class="card-title" >Score Board</h5>
+                                      <p class="card-text">Wins: <span id="wins">0</span>
+                                      </br>
+                                      Losses: <span id="losses">0</span>
+                                        </p>
+                                    </div>
+                                  </div>
                       </div>
                     </div>
             

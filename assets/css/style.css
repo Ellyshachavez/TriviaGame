@@ -30,5 +30,10 @@
 
 #card-bckgrnd {
     background-image: url("https://st2.depositphotos.com/1837303/8784/i/950/depositphotos_87841040-stock-photo-marble-background-wall.jpg");
-    opacity: .9;
+    /* opacity: .9; */
+}
+
+#div-font {
+    font-family: 'M PLUS 1p', sans-serif;  
+
 }
