@@ -11,6 +11,7 @@ $(document).ready(function () {
 
     $("#timer").hide();
     $("#score-board").hide();
+    $("#start").on("click", startGame);
 });
  
 
@@ -18,6 +19,7 @@ $(document).ready(function () {
     var correct = 0;
     var incorrect = 0;
     var questionIndex = 0;
+    var timer = 0;
     var trivia = { 
     questions: {
         qOne: "This young group often gets mistaken as the new Led Zeppelin",
@@ -29,7 +31,7 @@ $(document).ready(function () {
         qSeven: "Who is the lead singer of Royal Blood",
         qEight: "The term used in the 40’s by the US Air Force for UFOs was Foo Fighters.",
   
-     },
+    },
      choices: {
         qOne: ["Greta Van Fleet", "Zedd", "Black Sabbath", "Rush"],
         qTwo: ["Metallica", "Rascal Flats","Santana", "Fleetwood Mac"],
@@ -53,3 +55,32 @@ $(document).ready(function () {
         qEight: "True",
     },
  };
+//  console.log(trivia.choices.qThree[2]);
+
+//Start Game- set variables to zero
+function startGame() {
+    var $start = $("#start");
+    $start.on("click", showQuestion);
+    $app.empty();
+    $app.append($start);
+    correct = 0;
+    incorrect = 0;
+    timer = 0;
+    $("#timer").show();
+    $("#score-board").show();
+    $("#button-color").hide();
+
+
+}
+
+function showQuestion() {
+    $app.empty();
+    var $q = $("#questions");
+    for (var i=0; i < trivia.questions.length; i++) {
+         $q = $("<h2>"+ trivia.questions[i] + "</h2>");
+        trivia.questions[i].append($q);
+                
+    }
+
+}
+
