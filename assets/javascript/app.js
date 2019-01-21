@@ -20,7 +20,8 @@ $(document).ready(function () {
     var incorrect = 0;
     var questionIndex = 0;
     var timer = 0;
-    var timerOn;
+    var intervalId;
+    var timerOn = false;
     var trivia = { 
     questions: {
         qOne: "This young group often gets mistaken as the new Led Zeppelin",
@@ -80,6 +81,7 @@ function showQuestion() {
     timerOn = true;
     $("#instructions").hide();
     $("#count-down").text(timer);
+
     for (let value of Object.values(trivia.questions)[questionIndex]){
         var p = $("#questions");
         p.append(value);
@@ -89,9 +91,21 @@ function showQuestion() {
     };
    
 
-  function timerRunning () {
-    timerOn = setInterval(timer, 1000);
-  }
+  function timerRunning() {      
+        intervalId = setInterval(twentySeconds, 1000);
+        function twentySeconds() {
+            if (timer === 0) {
+                clearInterval(intervalId);
+                incorrect++;
+            }
+            if (timer > 0) {
+                timer--;
+                
+            }
+            $("#count-down").text(timer);
+        }
+    }
+    
 
 
 
@@ -99,3 +113,4 @@ function showQuestion() {
 
 
 
+    
