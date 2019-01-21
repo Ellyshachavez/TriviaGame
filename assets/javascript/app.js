@@ -88,25 +88,25 @@ function showQuestion() {
         q.append(value);
     };
     $answers = $("#answers");
-    questionOptions = Object.values(trivia.choices)[questionIndex];
-console.log(trivia.choices[3]);
+    
+     questionOptions = Object.values(trivia.choices)[questionIndex];
     $.each(questionOptions, function (index, key) {
-      $button = $answers.append($('<button class= "option btn btn-secondary">' + key + '</button>'));
+     $answers.append($('<button class= "option btn btn-secondary">' + key + '</button>'));
+    console.log(index, key);
     });
-    $button.on("click", );
+    handleAnswerClick();
     timerRunning();
     };
+    
    
-
+// if clicked button is equal to trivia.answer then correct++ else incorrect ++ 
     function handleAnswerClick() {
-        var value = $(this).text();
-
+        var result;
         var answerText = Object.values(trivia.answer)[questionIndex];
        console.log(answerText);
-        if ( questionOptions === answerText) {
-            console.log("congrats");
-            correct++;
-
+        if ($(this).text()  === trivia.answer[questionIndex]) {
+            
+        correct++;
         } else {
             incorrect++;
         }
