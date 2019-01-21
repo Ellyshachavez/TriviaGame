@@ -77,19 +77,41 @@ function startGame() {
 
 
 function showQuestion() {
+    $app.empty();
     timer = 20;
     timerOn = true;
     $("#instructions").hide();
     $("#count-down").text(timer);
 
     for (let value of Object.values(trivia.questions)[questionIndex]){
-        var p = $("#questions");
-        p.append(value);
-    
+        var q = $("#questions");
+        q.append(value);
     };
+    $answers = $("#answers");
+    questionOptions = Object.values(trivia.choices)[questionIndex];
+console.log(trivia.choices[3]);
+    $.each(questionOptions, function (index, key) {
+      $button = $answers.append($('<button class= "option btn btn-secondary">' + key + '</button>'));
+    });
+    $button.on("click", );
     timerRunning();
     };
    
+
+    function handleAnswerClick() {
+        var value = $(this).text();
+
+        var answerText = Object.values(trivia.answer)[questionIndex];
+       console.log(answerText);
+        if ( questionOptions === answerText) {
+            console.log("congrats");
+            correct++;
+
+        } else {
+            incorrect++;
+        }
+        results();
+    }
 
   function timerRunning() {      
         intervalId = setInterval(twentySeconds, 1000);
@@ -98,19 +120,18 @@ function showQuestion() {
                 clearInterval(intervalId);
                 incorrect++;
             }
-            if (timer > 0) {
+           else if (timer > 0) {
                 timer--;
-                
+
             }
-            $("#count-down").text(timer);
+            results();
+            // $("#count-down").text(timer);
         }
-    }
-    
+    };
 
+    function results() {
+        $("#correct").text(correct);
+        $("#count-down").text(timer);
+        $("#incorrect").text(incorrect);
 
-
-
-
-
-
-    
+    };
