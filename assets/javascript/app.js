@@ -20,6 +20,7 @@ $(document).ready(function () {
     var incorrect = 0;
     var questionIndex = 0;
     var timer = 0;
+    var timerOn = false;
     var trivia = { 
     questions: {
         qOne: "This young group often gets mistaken as the new Led Zeppelin",
@@ -60,27 +61,42 @@ $(document).ready(function () {
 //Start Game- set variables to zero
 function startGame() {
     var $start = $("#start");
-    $start.on("click", showQuestion);
+    // $start.on("click", showQuestion);
     $app.empty();
     $app.append($start);
     correct = 0;
     incorrect = 0;
-    timer = 0;
+    $("#quote").hide();
     $("#timer").show();
     $("#score-board").show();
     $("#button-color").hide();
-
+    showQuestion();
 
 }
+
 
 function showQuestion() {
-    $app.empty();
-    var $q = $("#questions");
-    for (var i=0; i < trivia.questions.length; i++) {
-         $q = $("<h2>"+ trivia.questions[i] + "</h2>");
-        trivia.questions[i].append($q);
-                
-    }
-
+    timer = 20;
+    timerOn = true;
+    $("#instructions").hide();
+    $("#count-down").text(timer);
+    for(var i in trivia.questions) {
+    console.log(i);
+        var p = $("#questions");
+        p.append(val);
+    
 }
+
+    };
+   
+
+  function timerRunning () {
+
+  }
+
+
+
+
+
+
 
